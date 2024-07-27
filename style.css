@@ -1,0 +1,297 @@
+#preloader {
+    background: black url(loader2.gif) no-repeat center center;
+    background-size: 50%;
+    height: 110vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+  }
+  
+  body {
+    font-family: cursive;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: white;
+    color: black;
+  }
+  
+  .muzieknootjes {
+    display: flex;
+    margin: 0;
+    position: fixed;
+    width: 50%;
+    min-width: 300px;
+    height: 10vh;
+    border: 0px solid #000;
+  }
+  
+  .noot-1,
+  .noot-2,
+  .noot-3,
+  .noot-4 {
+    position: fixed;
+    animation: notes 2s infinite linear;
+    font-size: 35px;
+    opacity: 0;
+  }
+  
+  .noot-1 {
+    top: 60px;
+    left: 0;
+    animation-delay: 0.5s;
+  }
+  
+  .noot-2 {
+    top: 30px;
+    left: 30%;
+    animation-delay: 1s;
+  }
+  
+  .noot-3 {
+    top: 90px;
+    left: 60%;
+    animation-delay: 1.5s;
+  }
+  
+  .noot-4 {
+    top: 40px;
+    left: 90%;
+    animation-delay: 3s;
+  }
+  
+  @keyframes notes {
+    0% {
+      transform: scale(1) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5) translate(50%, -50%);
+    }
+    80% {
+      opacity: 0;
+      transform: scale(1.5) translate(100%, -100%);
+    }
+    100% {
+      transform: scale(1.5) translate(100%, -100%);
+      opacity: 0;
+    }
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #sidebar {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: width 0.3s ease;
+    overflow-y: auto; /* Add vertical scroll */
+    max-height: 100vh; /* Ensure it doesn't exceed viewport height */
+  }
+  
+  #sidebar h2 {
+    margin-top: 0;
+  }
+  
+  #prelisted-cards .card {
+    background: #444;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: grab;
+    position: relative;
+  }
+  
+  #main {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  #columns {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .column {
+    background: #fff;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cards {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    background: #f9f9f98d;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    cursor: grab;
+    position: relative;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-header img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #040303b7;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .delete-btn {
+    background: #dc3545;
+    margin-top: 5px;
+  }
+  
+  .delete-btn:hover {
+    background: #c82333;
+  }
+  
+  .add-card-btn {
+    background: #28a745;
+    margin-top: 10px;
+  }
+  
+  .add-card-btn:hover {
+    background: #218838;
+  }
+  
+  audio {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  #main h1 {
+    font-size: 4rem; /* Large font size */
+    font-weight: bold; /* Make text bold */
+    color: #333; /* Dark color for good contrast */
+    text-align: center; /* Center align text */
+    margin: 20px 0; /* Add margin around the heading */
+    position: relative; /* For positioning pseudo-elements */
+    overflow: hidden; /* Hide overflow for animation effects */
+  }
+  
+  h1::before {
+    content: ''; /* No text content, just a visual effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Light shine effect */
+    transform: skewX(-20deg); /* Skew effect */
+    opacity: 0.6; /* Semi-transparent shine */
+    animation: shine 2s infinite; /* Animation */
+  }
+  
+  #preloader h3 {
+    font-size: 4rem; /* Large font size */
+    font-weight: bold; /* Make text bold */
+    color: #fcf5f5; /* Dark color for good contrast */
+    text-align: center; /* Center align text */
+    margin: 20px 0; /* Add margin around the heading */
+    position: relative; /* For positioning pseudo-elements */
+    overflow: hidden; /* Hide overflow for animation effects */
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) skewX(-20deg);
+    }
+    100% {
+      transform: translateX(100%) skewX(-20deg);
+    }
+  }
+  
+  h1 {
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.2), /* Light shadow for depth */
+      0 0 25px rgba(0, 0, 0, 0.5); /* Glowing effect */
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    #app {
+      flex-direction: row;
+    }
+  
+    #sidebar {
+      width: 20%;
+      min-width: 200px;
+    }
+  
+    #main {
+      width: 80%;
+    }
+  
+    .column {
+      width: 45%;
+      margin: 10px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    #sidebar {
+      width: 100%;
+    }
+  
+    #main {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .column {
+      width: 300%;
+    }
+  }
+  
