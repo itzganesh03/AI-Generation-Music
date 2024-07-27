@@ -1,5 +1,5 @@
 #preloader {
-    background: black url(loader2.gif) no-repeat center center;
+    background: black url(/asset/loader2.gif) no-repeat center center;
     background-size: 50%;
     height: 110vh;
     width: 100%;
