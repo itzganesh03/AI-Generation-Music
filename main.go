@@ -22,6 +22,7 @@ type CardDetails struct {
 func main() {
 	http.HandleFunc("/", serveHTML)
 	http.HandleFunc("/submit", corsMiddleware(submitHandler))
+	http.HandleFunc("/cards", corsMiddleware(fetchCardsHandler)) // Add the fetch-cards endpoint
 
 	fmt.Println("Server started at http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
@@ -52,6 +53,31 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"status": "success"})
+}
+
+func fetchCardsHandler(w http.ResponseWriter, r *http.Request) {
+
+	if r.Method != http.MethodGet {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Simulate fetching cards from a data source
+	cards := []Card{
+		{Title: "Card 1", Description: "Description for card 1", AudioURL: "audio1.mp3", ImageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4_j6B_Rm1Om5WrQW6en163GJyhkE2awj9A&s"},
+		{Title: "Card 2", Description: "Description for card 2", AudioURL: "audio1.mp3", ImageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr4_j6B_Rm1Om5WrQW6en163GJyhkE2awj9A&s"},
+	}
+
+	cardDetails := CardDetails{Cards: cards}
+	fmt.Println("fetchCardsHandler called: \n", cardDetails) // Add this line
+	fmt.Println("################### successfully fetch data ######################")
+	fmt.Println("")
+
+	w.Header().Set("Content-Type", "application/json")
+	if err := json.NewEncoder(w).Encode(cardDetails); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
 
 func corsMiddleware(next http.HandlerFunc) http.HandlerFunc {

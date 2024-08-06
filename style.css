@@ -6,6 +6,36 @@
     position: fixed;
     z-index: 100;
   }
+/* Existing styles... */
+
+#loading-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  display: none; /* Hide initially */
+}
+
+#loading-bar {
+  width: 0;
+  height: 10px;
+  background-color: #28a745;
+  transition: width 0.4s ease;
+}
+
+#fetched-cards-container {
+  margin-top: 20px;
+}
+
+#fetched-cards .card {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
   
   body {
     font-family: cursive;
