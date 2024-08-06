@@ -47,6 +47,8 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 	// Process the card details (e.g., save to a database)
 	// For now, just print to the console
 	fmt.Printf("Received card details: %+v\n", cardDetails)
+	fmt.Println("################### successfully got data ######################")
+	fmt.Println("")
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{"status": "success"})
