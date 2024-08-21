@@ -177,7 +177,44 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .fetchcards {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .fetchcard {
+    background: #f9f9f98d;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    cursor: grab;
+    position: relative;
+  }
   
+  .fetchcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fetchcard-header img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #040303b7;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+
+
+
+
   .card {
     background: #f9f9f98d;
     border: 1px solid #ddd;

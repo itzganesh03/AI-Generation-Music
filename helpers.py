@@ -11,7 +11,7 @@ def make_audio_list(l):
 			file.write(s)
 
 	try:
-		os.system("ffmpeg.exe -f concat -safe 0 -i list.txt output.mp3")
+		os.system("ffmpeg.exe -y -f concat -safe 0 -i list.txt output.mp3")
 	except:
 		print("FFMPEG failed to merge audio")
 

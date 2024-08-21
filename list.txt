@@ -1,3 +1,2 @@
-file 'D:/PY_PROGS/AIGenerationMusic.github.io/frontend_images/Sharp/Untitled_score.mp3'
-file 'D:/PY_PROGS/AIGenerationMusic.github.io/frontend_images/Sixteenth-Rest/Untitled_score.mp3'
-file 'D:/PY_PROGS/AIGenerationMusic.github.io/frontend_images/Sixty-Four-Rest/Untitled_score.mp3'
+file 'D:/PY_PROGS/AIGenerationMusic.github.io/frontend_images/Beam/Untitled_score.mp3'
+file 'D:/PY_PROGS/AIGenerationMusic.github.io/frontend_images/Accent/Untitled_score.mp3'

@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 from helpers import make_audio_list, make_image_list
+import time
 
 app = FastAPI()
 
@@ -37,6 +38,7 @@ async def submit_handler(data:Request):
 # Fetch and return card details, then reset the stored details
 @app.get("/cards")
 async def fetch_cards_handler():
+    time.sleep(3)
     global stored_card_details
     if stored_card_details is None:
         raise HTTPException(status_code=404, detail="No card details available")
