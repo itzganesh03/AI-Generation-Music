@@ -20,7 +20,7 @@ target_size = (28, 28)  # Update this if your images are different size
 num_classes = 20
 
 # Set the confidence threshold
-confidence_threshold = 0.96  # Only save images with a prediction confidence above this value
+confidence_threshold = 0.99  # Only save images with a prediction confidence above this value
 
 # counting the number of successful saves.
 count = 0

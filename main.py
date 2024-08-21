@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+from helpers import make_audio_list, make_image_list
 
 app = FastAPI()
 
@@ -49,6 +50,9 @@ async def fetch_cards_handler():
     
     response = stored_card_details
     stored_card_details = None
+
+    make_audio_list(response)
+    make_image_list(response)
     return response
 
 if __name__ == "__main__":
