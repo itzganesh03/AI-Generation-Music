@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,16 +14,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Define the Card and CardDetails models
-class Card(BaseModel):
-    title: str
-    description: str
-    audioUrl: str
-    imageUrl: str
-
-class CardDetails(BaseModel):
-    cards: List[Card]
-
 # Global variable to store card details
 stored_card_details = None
 
@@ -34,11 +24,14 @@ async def serve_html():
 
 # Handle the submission of card details
 @app.post("/submit")
-async def submit_handler(card_details: CardDetails):
+async def submit_handler(data:Request):
     global stored_card_details
     # Store the card details in the global variable
-    stored_card_details = card_details
-    print(f"Received card details: {card_details}")
+    stored_card_details = await data.json()
+    print(f"Received card details: {stored_card_details}")
+    make_image_list(stored_card_details['cards'])
+    make_audio_list(stored_card_details['cards'])
+    stored_card_details={'cards': [{'title': 'Generated Output', 'description': 'Generated Output', 'audioUrl': 'file:///D:/PY_PROGS/AIGenerationMusic.github.io/output.mp3', 'imageUrl': 'file:///D:/PY_PROGS/AIGenerationMusic.github.io/test.jpg'}]}
     return {"status": "success"}
 
 # Fetch and return card details, then reset the stored details
@@ -50,9 +43,6 @@ async def fetch_cards_handler():
     
     response = stored_card_details
     stored_card_details = None
-
-    make_audio_list(response)
-    make_image_list(response)
     return response
 
 if __name__ == "__main__":
